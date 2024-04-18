@@ -1,3 +1,7 @@
 {
-
+  "tabs.leonidsartifacts.la_tab": "Leonid's Artifacts",
+  "item.leonidsartifacts.sigmium_dust": "Sigmium Dust",
+  "item.leonidsartifacts.sigmium_ingot": "Sigmium Ingot",
+  "item.leonidsartifacts.raw_sigmium": "Raw Sigmium",
+  "block.leonidsartifacts.sigmium_ore": "Sigmium Ore"
 }
