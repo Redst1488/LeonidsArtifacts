@@ -8,7 +8,6 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
-
 plugins {
     id 'eclipse'
     id 'idea'
