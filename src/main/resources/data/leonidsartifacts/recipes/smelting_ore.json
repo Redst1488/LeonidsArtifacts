@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "group": "leonidsartifacts",
+  "category": "blocks",
+  "experience": 10,
+  "cookingtime": 600,
+  "ingredient": {
+    "item": "leonidsartifacts:raw_sigmium"
+  },
+  "result": "leonidsartifacts:sigmium_ingot"
+}

@@ -1,0 +1,15 @@
+{
+  "type": "create:crushing",
+  "group": "leonidsartifacts",
+  "ingredients": [
+    {
+      "item": "leonidsartifacts:sigmium_ingot"
+    }
+  ],
+  "processingTime": 800,
+  "results": [
+    {
+      "item": "leonidsartifacts:sigmium_dust"
+    }
+  ]
+}

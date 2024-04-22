@@ -3,5 +3,9 @@
   "item.leonidsartifacts.sigmium_dust": "Sigmium Dust",
   "item.leonidsartifacts.sigmium_ingot": "Sigmium Ingot",
   "item.leonidsartifacts.raw_sigmium": "Raw Sigmium",
-  "block.leonidsartifacts.sigmium_ore": "Sigmium Ore"
+  "block.leonidsartifacts.sigmium_ore": "Sigmium Ore",
+  "tooltip.leonidsartifats.sigmium_ore": "A block containing magic ore",
+  "tooltip.leonidsartifats.raw_sigmium": "An ore that has magical power",
+  "tooltip.leonidsartifats.sigmium_ingot": "An ingot containing concentrated magic",
+  "tooltip.leonidsartifats.sigmium_dust": "Dust with highly concentrated magic"
 }
