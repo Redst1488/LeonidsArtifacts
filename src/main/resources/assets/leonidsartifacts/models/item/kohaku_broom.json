@@ -1,0 +1,6 @@
+{
+  "parent": "leonidsartifacts:custom/broom",
+  "textures": {
+    "0": "leonidsartifacts:block/broom"
+  }
+}
