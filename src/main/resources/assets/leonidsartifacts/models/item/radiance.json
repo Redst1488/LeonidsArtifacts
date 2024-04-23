@@ -1,0 +1,6 @@
+{
+  "parent": "leonidsartifacts:custom/radiance",
+  "textures": {
+    "0": "leonidsartifacts:block/radiance"
+  }
+}

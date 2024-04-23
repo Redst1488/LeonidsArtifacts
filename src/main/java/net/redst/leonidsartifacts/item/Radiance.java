@@ -1,15 +1,19 @@
 package net.redst.leonidsartifacts.item;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.redst.leonidsartifacts.utils.RadianceAura;
 
+import java.util.List;
 
-public class KohakuBroom extends SwordItem {
-    public KohakuBroom() {
+public class Radiance extends SwordItem {
+    public Radiance() {
         super(new Tier() {
             public int getUses() {
                 return 0;
@@ -31,8 +35,16 @@ public class KohakuBroom extends SwordItem {
             }
         }, 3, -2f, new Item.Properties());
     }
-    @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-        return super.use(pLevel, pPlayer, pUsedHand);
+    public void appendHoverText(ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
+        pTooltip.add(Component.translatable("tooltip.leonidsartifats.radiance"));
+        super.appendHoverText(itemstack, world, pTooltip, flag);
     }
+    @Override
+    public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
+        super.inventoryTick(itemstack, world, entity, slot, selected);
+        Player p = (Player)entity ;
+        if (selected)
+            RadianceAura.Burn(world, p);
+    }
+
 }
