@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.redst.leonidsartifacts.load.InitBlocks;
+import net.redst.leonidsartifacts.load.InitEffects;
 import net.redst.leonidsartifacts.load.InitItems;
 import net.redst.leonidsartifacts.load.InitTabs;
 import org.slf4j.Logger;
@@ -21,5 +22,6 @@ public class LeonidsArtifacts {
         InitTabs.register(modEventBus);
         InitItems.register(modEventBus);
         InitBlocks.register(modEventBus);
+        InitEffects.register(modEventBus);
     }
 }
