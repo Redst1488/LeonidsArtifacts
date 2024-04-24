@@ -15,7 +15,7 @@ public class SigmiumIngot extends Item {
     }
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
-        pTooltip.add(Component.translatable("tooltip.leonidsartifats.sigmium_ingot"));
+        pTooltip.add(Component.translatable("tooltip.leonidsartifacts.sigmium_ingot"));
         super.appendHoverText(itemstack, world, pTooltip, flag);
     }
 }

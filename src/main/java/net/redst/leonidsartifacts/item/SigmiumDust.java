@@ -15,7 +15,7 @@ public class SigmiumDust extends Item {
     }
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
-        pTooltip.add(Component.translatable("tooltip.leonidsartifats.sigmium_dust"));
+        pTooltip.add(Component.translatable("tooltip.leonidsartifacts.sigmium_dust"));
         super.appendHoverText(itemstack, world, pTooltip, flag);
     }
 }

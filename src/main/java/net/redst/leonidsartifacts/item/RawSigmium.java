@@ -15,7 +15,7 @@ public class RawSigmium extends Item {
     }
     @Override
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
-        pTooltip.add(Component.translatable("tooltip.leonidsartifats.raw_sigmium"));
+        pTooltip.add(Component.translatable("tooltip.leonidsartifacts.raw_sigmium"));
         super.appendHoverText(itemstack, world, pTooltip, flag);
     }
 }
