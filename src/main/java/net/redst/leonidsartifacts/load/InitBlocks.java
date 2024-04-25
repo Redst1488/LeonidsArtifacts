@@ -16,7 +16,7 @@ public class InitBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, LeonidsArtifacts.MODID);
 
     public static final RegistryObject<Block> SIGMIUM_ORE = registerBlock("sigmium_ore",
-            () -> new SigmiumOre());
+            SigmiumOre::new);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

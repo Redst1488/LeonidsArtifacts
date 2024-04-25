@@ -17,7 +17,7 @@ public abstract class EntityMixin {
         if (pEntity instanceof Player) {
             Player player = (Player)pEntity;
             if (player.hasEffect(InitEffects.BURN.get())) {
-                if (ThreadLocalRandom.current().nextInt(0, 4) == 1) {
+                if (ThreadLocalRandom.current().nextInt(0, 3) == 1) {
                     cir.setReturnValue(Boolean.TRUE);
                 }
             }

@@ -31,8 +31,8 @@ public class LeonidsArtifacts {
     }
 
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
-    public static void queueServerWork(int tick, Runnable action) {
-        workQueue.add(new AbstractMap.SimpleEntry(action, tick));
+    public static void skipTime(int tick, Runnable action) {
+        workQueue.add(new AbstractMap.SimpleEntry<>(action, tick));
     }
     @SubscribeEvent
     public void tick(TickEvent.ServerTickEvent event) {
