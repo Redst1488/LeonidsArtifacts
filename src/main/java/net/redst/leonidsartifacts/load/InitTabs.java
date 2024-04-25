@@ -17,7 +17,6 @@ public class InitTabs {
                 tabData.accept(InitItems.SIGMIUM_INGOT.get());
                 tabData.accept(InitItems.RAW_SIGMIUM.get());
                 tabData.accept(InitBlocks.SIGMIUM_ORE.get());
-                tabData.accept(InitItems.KOHAKU_BROOM.get());
                 tabData.accept(InitItems.RADIANCE.get());
             }).build());
     public static void register(IEventBus eventBus) {

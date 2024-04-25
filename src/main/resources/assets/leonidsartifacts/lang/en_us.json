@@ -10,6 +10,8 @@
   "tooltip.leonidsartifacts.sigmium_dust": "Dust with highly concentrated magic",
   "item.leonidsartifacts.radiance": "Radiance",
   "tooltip.leonidsartifacts.radiance": "Sword of Fire",
-  "item.leonidsartifacts.kohaku_broom": "Kohaku Broom",
-  "effect.leonidsartifacts.burn": "Burn"
+  "effect.leonidsartifacts.burn": "Burn",
+  "key.category.leonidsartifacts.use": "Leonid's Artifacts",
+  "key.leonidsartifacts.use_one_artifice": "Use First Artifact",
+  "key.leonidsartifacts.use_two_artifice": "Use Second Artifact"
 }

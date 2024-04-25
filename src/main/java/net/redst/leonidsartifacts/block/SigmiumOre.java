@@ -31,7 +31,7 @@ public class SigmiumOre extends Block {
     }
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.translatable("tooltip.leonidsartifats.sigmium_ore"));
+        pTooltip.add(Component.translatable("tooltip.leonidsartifacts.sigmium_ore"));
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
     @Override

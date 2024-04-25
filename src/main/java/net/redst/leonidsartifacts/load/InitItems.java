@@ -1,8 +1,6 @@
 package net.redst.leonidsartifacts.load;
 
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -15,7 +13,6 @@ public class InitItems {
     public static final RegistryObject<Item> SIGMIUM_DUST = ITEMS.register("sigmium_dust", () -> new SigmiumDust());
     public static final RegistryObject<Item> SIGMIUM_INGOT = ITEMS.register("sigmium_ingot", () -> new SigmiumIngot());
     public static final RegistryObject<Item> RAW_SIGMIUM = ITEMS.register("raw_sigmium", () -> new RawSigmium());
-    public static final RegistryObject<Item> KOHAKU_BROOM = ITEMS.register("kohaku_broom", () -> new KohakuBroom());
     public static final RegistryObject<Item> RADIANCE = ITEMS.register("radiance", () -> new Radiance());
 
     public static void register(IEventBus eventBus) {
