@@ -12,4 +12,5 @@ public class InitCuriosSlot {
     @SubscribeEvent
     public static void enqueueIMC(final InterModEnqueueEvent event) {
         InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("artifact").icon(new ResourceLocation("curios:slot/iconslot")).size(2).build());
+    }
 }
