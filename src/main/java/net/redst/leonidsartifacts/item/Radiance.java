@@ -9,6 +9,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.redst.leonidsartifacts.LeonidsArtifacts;
+import net.redst.leonidsartifacts.network.Variable;
 import net.redst.leonidsartifacts.utils.RadianceAura;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
@@ -68,17 +69,18 @@ public class Radiance extends SwordItem implements ICurioItem {
         if (this.isActive) {
             RadianceAura.Burn(player, level);
         }
-    }
-    @Override
-    public void onEquip(SlotContext slotContext, ItemStack prevStack, ItemStack stack) {
-        LeonidsArtifacts.LOGGER.info(String.valueOf(slotContext.index()));
-        LeonidsArtifacts.LOGGER.info("0");
+        if ((player.getCapability(Variable.PLAYER_VARIABLES_CAPABILITY, null).orElse(new Variable.PlayerVariables())).isFirstPressed) {
+            if (!(player.getCooldowns().isOnCooldown(stack.getItem()))) {
+                player.getCooldowns().addCooldown(stack.getItem(), 40);
+                this.isActive = !this.isActive;
+            }
+        }
     }
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
         InteractionResultHolder<ItemStack> ar = super.use(world, entity, hand);
+        entity.getCooldowns().addCooldown(entity.getMainHandItem().getItem(), 40);
         this.isActive = !this.isActive;
-        entity.getCooldowns().addCooldown(entity.getMainHandItem().getItem(), 100);
         return ar;
     }
 }

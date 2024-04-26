@@ -11,7 +11,7 @@
   "item.leonidsartifacts.radiance": "Radiance",
   "tooltip.leonidsartifacts.radiance": "Sword of Fire",
   "effect.leonidsartifacts.burn": "Burn",
-  "key.category.leonidsartifacts.use": "Leonid's Artifacts",
-  "key.leonidsartifacts.use_one_artifice": "Use First Artifact",
-  "key.leonidsartifacts.use_two_artifice": "Use Second Artifact"
+  "key.category.leonidsartifacts.key": "Leonid's Artifacts",
+  "key.leonidsartifacts.use_first_artifact": "Use First Artifact",
+  "key.leonidsartifacts.use_second_artifact": "Use Second Artifact"
 }
