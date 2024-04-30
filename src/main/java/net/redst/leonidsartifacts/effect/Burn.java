@@ -4,8 +4,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeMap;
-import net.redst.leonidsartifacts.LeonidsArtifacts;
-
 public class Burn extends MobEffect {
     public Burn() {
         super(MobEffectCategory.HARMFUL, -1);

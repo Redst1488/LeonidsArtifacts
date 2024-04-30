@@ -9,13 +9,12 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
 public class SigmiumDust extends Item {
     public SigmiumDust() {
         super(new Item.Properties().stacksTo(64).rarity(Rarity.COMMON));
     }
     @Override
-    public void appendHoverText(ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
+    public void appendHoverText(@NotNull ItemStack itemstack, Level world, List<Component> pTooltip, TooltipFlag flag) {
         pTooltip.add(Component.translatable("tooltip.leonidsartifacts.sigmium_dust"));
         super.appendHoverText(itemstack, world, pTooltip, flag);
     }

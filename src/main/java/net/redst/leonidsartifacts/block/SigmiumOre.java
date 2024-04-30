@@ -13,12 +13,11 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.redst.leonidsartifacts.load.InitItems;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Collections;
-
-
 public class SigmiumOre extends Block {
     public SigmiumOre() {
         super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(10f, 10f));
@@ -30,12 +29,12 @@ public class SigmiumOre extends Block {
         return false;
     }
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(Component.translatable("tooltip.leonidsartifacts.sigmium_ore"));
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
     @Override
-    public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
+    public @NotNull List<ItemStack> getDrops(BlockState state, LootParams.@NotNull Builder builder) {
         List<ItemStack> dropsOriginal = super.getDrops(state, builder);
         if (!dropsOriginal.isEmpty())
             return dropsOriginal;
