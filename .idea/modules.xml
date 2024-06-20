@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LeonidsArtifacts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/LeonidsArtifacts.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/LeonidsArtifacts.test.iml" filepath="$PROJECT_DIR$/.idea/modules/LeonidsArtifacts.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/net.redst.LeonidsArtifacts.test.iml" filepath="$PROJECT_DIR$/.idea/modules/net.redst.LeonidsArtifacts.test.iml" />
     </modules>
   </component>
 </project>

@@ -1,4 +1,4 @@
-{
+  {
   "tabs.leonidsartifacts.la_tab": "Leonid's Artifacts",
   "key.category.leonidsartifacts.key": "Leonid's Artifacts",
   "key.leonidsartifacts.use_first_artifact": "Use First Artifact",
@@ -10,6 +10,7 @@
   "item.leonidsartifacts.blink_dagger": "Blink Dagger",
   "tooltip.leonidsartifacts.blink_dagger": "Active Artifact",
 
+    "item.leonidsartifacts.broom": "Broom",
   "item.leonidsartifacts.sigmium_dust": "Sigmium Dust",
   "item.leonidsartifacts.sigmium_ingot": "Sigmium Ingot",
   "item.leonidsartifacts.raw_sigmium": "Raw Sigmium",
