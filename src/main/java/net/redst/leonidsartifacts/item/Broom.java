@@ -52,6 +52,7 @@ public class Broom extends SwordItem {
     @Override
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
+
         if(entity instanceof Player) {
             LocalPlayer player = (LocalPlayer) entity;
             if (selected) {
