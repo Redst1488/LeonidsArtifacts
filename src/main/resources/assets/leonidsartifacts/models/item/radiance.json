@@ -1,5 +1,5 @@
 {
-  "parent": "custom/radiance",
+  "parent": "item/handled",
   "textures": {
     "layer0": "leonidsartifacts:item/radiance"
   }
