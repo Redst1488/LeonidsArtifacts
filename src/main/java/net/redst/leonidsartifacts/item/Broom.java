@@ -12,7 +12,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 
 public class Broom extends SwordItem {
-
     private static int jumpAmount;
     private static boolean canDoubleJump;
 
@@ -42,14 +41,12 @@ public class Broom extends SwordItem {
                 return Ingredient.of();
             }
         }, 3, -2.8f, new Properties().rarity(Rarity.EPIC));
-
     }
 
     @Override
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
-
-        if(entity instanceof LocalPlayer player) {
+        if (entity instanceof LocalPlayer player) {
             if (selected) {
                 if (player.onGround()) {
                     jumpAmount = 0;
@@ -58,8 +55,8 @@ public class Broom extends SwordItem {
                         jumpAmount = 1;
                         canDoubleJump = true;
                     }
-                    if (player.input.jumping){
-                        if(!canDoubleJump && jumpAmount < 2){
+                    if (player.input.jumping) {
+                        if (!canDoubleJump && jumpAmount < 2) {
                             player.jumpFromGround();
                             jumpAmount++;
                         }
@@ -73,6 +70,4 @@ public class Broom extends SwordItem {
         }
 
     }
-
-
 }
