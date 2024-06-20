@@ -4,16 +4,12 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.redst.leonidsartifacts.network.Variables;
-import net.redst.leonidsartifacts.utils.RadianceAura;
 
 public class Broom extends SwordItem {
 
@@ -53,8 +49,7 @@ public class Broom extends SwordItem {
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
 
-        if(entity instanceof Player) {
-            LocalPlayer player = (LocalPlayer) entity;
+        if(entity instanceof LocalPlayer player) {
             if (selected) {
                 if (player.onGround()) {
                     jumpAmount = 0;
