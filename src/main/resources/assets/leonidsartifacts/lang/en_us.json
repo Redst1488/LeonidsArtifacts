@@ -5,6 +5,7 @@
   "key.leonidsartifacts.use_second_artifact": "Use Second Artifact",
   "curios.identifier.artifact": "Artifact",
   "effect.leonidsartifacts.burn": "Burn",
+    "effect.leonidsartifacts.agile": "Agile",
   "item.leonidsartifacts.radiance": "Radiance",
   "tooltip.leonidsartifacts.radiance": "Switchable Artifact",
   "item.leonidsartifacts.blink_dagger": "Blink Dagger",

@@ -1,15 +1,20 @@
 package net.redst.leonidsartifacts.item;
 
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.redst.leonidsartifacts.load.InitEffects;
+import net.redst.leonidsartifacts.utils.Dagger;
 
 public class Broom extends SwordItem {
 
@@ -49,7 +54,7 @@ public class Broom extends SwordItem {
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
 
-        if(entity instanceof LocalPlayer player) {
+        if (entity instanceof LocalPlayer player) {
             if (selected) {
                 if (player.onGround()) {
                     jumpAmount = 0;
@@ -58,9 +63,12 @@ public class Broom extends SwordItem {
                         jumpAmount = 1;
                         canDoubleJump = true;
                     }
-                    if (player.input.jumping){
-                        if(!canDoubleJump && jumpAmount < 2){
+                    if (player.input.jumping) {
+                        if (!canDoubleJump && jumpAmount < 2) {
                             player.jumpFromGround();
+                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
+                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
+                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
                             jumpAmount++;
                         }
                         canDoubleJump = true;
@@ -68,11 +76,26 @@ public class Broom extends SwordItem {
                         canDoubleJump = false;
                     }
                 }
-                player.addEffect(new MobEffectInstance(MobEffects.GLOWING, 1, 0, false, false));
+                player.addEffect(new MobEffectInstance(InitEffects.AGILE.get(), 20, 0, true, false));
+            }
+            if(!selected){
+                player.removeEffect(InitEffects.AGILE.get());
             }
         }
 
     }
 
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        Dagger.Blink(pLevel, pPlayer, itemStack);
+        return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
+    }
 
 }
