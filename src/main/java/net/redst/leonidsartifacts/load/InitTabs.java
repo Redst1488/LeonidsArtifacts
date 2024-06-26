@@ -13,7 +13,6 @@ public class InitTabs {
     public static final RegistryObject<CreativeModeTab> LA_TAB = TAB.register("la_tab",
             () -> CreativeModeTab.builder().title(Component.translatable("tabs.leonidsartifacts.la_tab")).icon(() -> new ItemStack(InitBlocks.SIGMIUM_ORE.get())).displayItems((parameters, tabData) -> {
                 tabData.accept(InitItems.RADIANCE.get());
-                tabData.accept(InitItems.BLINK_DAGGER.get());
                 tabData.accept(InitItems.BROOM.get());
             }).build());
     public static void register(IEventBus eventBus) {
