@@ -28,6 +28,7 @@ public class LeonidsArtifacts {
         InitBlocks.register(modEventBus);
         InitEffects.register(modEventBus);
         InitSounds.register(modEventBus);
+        InitParticles.register(modEventBus);
     }
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
     public static void queueServerWork(int tick, Runnable action) {

@@ -66,9 +66,9 @@ public class Broom extends SwordItem {
                     if (player.input.jumping) {
                         if (!canDoubleJump && jumpAmount < 2) {
                             player.jumpFromGround();
-                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
-                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
-                            world.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.1, 0);
+                            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
+                            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
+                            world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
                             jumpAmount++;
                         }
                         canDoubleJump = true;
@@ -88,12 +88,12 @@ public class Broom extends SwordItem {
     @Override
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack itemStack = pPlayer.getItemInHand(pUsedHand);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
-        pLevel.addParticle(ParticleTypes.CAMPFIRE_SIGNAL_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random(), pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random()+0.5, pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random()+0.5, pPlayer.getZ(), 0, 0, 0);
+        pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY()+Math.random()+0.5, pPlayer.getZ(), 0, 0, 0);
         Dagger.Blink(pLevel, pPlayer, itemStack);
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }
