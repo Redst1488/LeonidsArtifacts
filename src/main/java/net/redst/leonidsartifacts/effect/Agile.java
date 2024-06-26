@@ -13,6 +13,6 @@ public class Agile extends MobEffect {
     }
 
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier){
-        pLivingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20, pAmplifier));
+        pLivingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 1, pAmplifier));
     }
 }
