@@ -1,12 +1,11 @@
 package net.redst.leonidsartifacts.network.packages;
 
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.network.NetworkEvent;
 import net.redst.leonidsartifacts.LeonidsArtifacts;
 import net.redst.leonidsartifacts.network.Message;
 import net.redst.leonidsartifacts.network.Variables;
