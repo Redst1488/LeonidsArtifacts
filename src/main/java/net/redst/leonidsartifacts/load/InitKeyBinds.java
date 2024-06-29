@@ -1,5 +1,6 @@
 package net.redst.leonidsartifacts.load;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
@@ -7,14 +8,10 @@ import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.client.settings.KeyConflictContext;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
 import net.redst.leonidsartifacts.LeonidsArtifacts;
 import net.redst.leonidsartifacts.network.Message;
 import net.redst.leonidsartifacts.network.packages.FirstPress;
 import net.redst.leonidsartifacts.network.packages.SecondPress;
-
-import com.mojang.blaze3d.platform.InputConstants;
-
 import org.lwjgl.glfw.GLFW;
 public class InitKeyBinds {
     public static final String KEY_CATEGORY_LA = "key.category.leonidsartifacts.key";
@@ -30,7 +27,6 @@ public class InitKeyBinds {
                 Message.PACKET_HANDLER.sendToServer(new FirstPress(0, 0));
                 assert Minecraft.getInstance().player != null;
                 FirstPress.pressAction(Minecraft.getInstance().player, 0, 0);
-
             }
             isDownOld = isDown;
         }

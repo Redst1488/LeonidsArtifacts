@@ -12,11 +12,10 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
-
 import net.redst.leonidsartifacts.load.InitItems;
 
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
 public class SigmiumOre extends Block {
     public SigmiumOre() {
         super(BlockBehaviour.Properties.of().sound(SoundType.STONE).strength(10f, 10f));
