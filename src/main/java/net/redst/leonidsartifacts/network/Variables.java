@@ -1,29 +1,24 @@
 package net.redst.leonidsartifacts.network;
 
-import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.network.NetworkEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.capabilities.ICapabilitySerializable;
-import net.minecraftforge.common.capabilities.CapabilityToken;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.Capability;
-
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.nbt.Tag;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.core.Direction;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.capabilities.*;
+import net.minecraftforge.common.util.FakePlayer;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.network.NetworkEvent;
+import net.minecraftforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -62,6 +57,9 @@ public class Variables {
             clone.isFirstPressed = original.isFirstPressed;
             clone.isSecondPressed = original.isSecondPressed;
             clone.RadianceActive = original.RadianceActive;
+            clone.DoubleJump = original.DoubleJump;
+            clone.canDoubleJump = original.canDoubleJump;
+            clone.jumpAmount = original.jumpAmount;
             event.isWasDeath();
         }
     }
@@ -93,6 +91,9 @@ public class Variables {
         public boolean isFirstPressed = false;
         public boolean isSecondPressed = false;
         public boolean RadianceActive = true;
+        public boolean DoubleJump = false;
+        public boolean canDoubleJump = false;
+        public int jumpAmount = 0;
         public void syncPlayerVariables(Entity entity) {
             if (entity instanceof ServerPlayer serverPlayer)
                 Message.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> serverPlayer), new PlayerVariablesSyncMessage(this));
@@ -102,6 +103,9 @@ public class Variables {
             nbt.putBoolean("isFirstPressed", isFirstPressed);
             nbt.putBoolean("isSecondPressed", isSecondPressed);
             nbt.putBoolean("RadianceActive", RadianceActive);
+            nbt.putBoolean("DoubleJump", DoubleJump);
+            nbt.putBoolean("canDoubleJump", canDoubleJump);
+            nbt.putInt("jumpAmount", jumpAmount);
             return nbt;
         }
         public void readNBT(Tag Tag) {
@@ -109,6 +113,9 @@ public class Variables {
             isFirstPressed = nbt.getBoolean("isFirstPressed");
             isSecondPressed = nbt.getBoolean("isSecondPressed");
             RadianceActive = nbt.getBoolean("RadianceActive");
+            DoubleJump = nbt.getBoolean("DoubleJump");
+            canDoubleJump = nbt.getBoolean("canDoubleJump");
+            jumpAmount = nbt.getInt("jumpAmount");
         }
     }
     public static class PlayerVariablesSyncMessage {
@@ -132,6 +139,9 @@ public class Variables {
                     variables.isFirstPressed = message.data.isFirstPressed;
                     variables.isSecondPressed = message.data.isSecondPressed;
                     variables.RadianceActive = message.data.RadianceActive;
+                    variables.DoubleJump = message.data.DoubleJump;
+                    variables.canDoubleJump = message.data.canDoubleJump;
+                    variables.jumpAmount = message.data.jumpAmount;
                 }
             });
             context.setPacketHandled(true);
