@@ -14,6 +14,7 @@ public class InitItems {
     public static final RegistryObject<Item> SIGMIUM_INGOT = ITEMS.register("sigmium_ingot", SigmiumIngot::new);
     public static final RegistryObject<Item> RAW_SIGMIUM = ITEMS.register("raw_sigmium", RawSigmium::new);
     public static final RegistryObject<Item> BROOM = ITEMS.register("broom", Broom::new);
+    public static final RegistryObject<Item> CHARON = ITEMS.register("charon", Charon::new);
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
