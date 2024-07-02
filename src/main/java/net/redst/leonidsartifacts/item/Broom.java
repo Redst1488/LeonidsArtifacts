@@ -18,8 +18,8 @@ import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.phys.Vec3;
 import net.redst.leonidsartifacts.load.InitEffects;
+import net.redst.leonidsartifacts.load.InitParticles;
 import net.redst.leonidsartifacts.network.Variables;
 
 public class Broom extends SwordItem {
@@ -58,30 +58,14 @@ public class Broom extends SwordItem {
 
         if (entity instanceof Player player) {
             if (selected) {
-
-                if (player.onGround()) {
+                if ((player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new Variables.PlayerVariables())).DoubleJump) {
+                        world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
+                        world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
+                        world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
                     player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                        capability.jumpAmount = 0;
+                        capability.DoubleJump = false;
                         capability.syncPlayerVariables(player);
                     });
-                } else {
-                    if (((player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new Variables.PlayerVariables())).jumpAmount == 0)) {
-                        player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                            capability.jumpAmount = 1;
-                            capability.syncPlayerVariables(player);
-                        });
-                        player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-                            capability.canDoubleJump = true;
-                            capability.syncPlayerVariables(player);
-                        });
-                    }
-                }
-                if ((player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new Variables.PlayerVariables())).DoubleJump) {
-                    world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
-                    world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
-                    world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
-                    player.jumpFromGround();
-                    System.out.print("jump message");
                 }
                 player.addEffect(new MobEffectInstance(InitEffects.AGILE.get(), 1, 0, false, false));
             }

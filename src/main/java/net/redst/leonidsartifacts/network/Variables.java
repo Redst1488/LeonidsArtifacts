@@ -91,9 +91,9 @@ public class Variables {
         public boolean isFirstPressed = false;
         public boolean isSecondPressed = false;
         public boolean RadianceActive = true;
-        public boolean DoubleJump = false;
-        public boolean canDoubleJump = false;
-        public int jumpAmount = 0;
+        public boolean DoubleJump;
+        public boolean canDoubleJump;
+        public int jumpAmount;
         public void syncPlayerVariables(Entity entity) {
             if (entity instanceof ServerPlayer serverPlayer)
                 Message.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> serverPlayer), new PlayerVariablesSyncMessage(this));
