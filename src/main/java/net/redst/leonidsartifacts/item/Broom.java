@@ -19,7 +19,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AirBlock;
 import net.minecraft.world.level.block.Block;
 import net.redst.leonidsartifacts.load.InitEffects;
-import net.redst.leonidsartifacts.load.InitParticles;
 import net.redst.leonidsartifacts.network.Variables;
 
 public class Broom extends SwordItem {
@@ -34,7 +33,7 @@ public class Broom extends SwordItem {
             }
 
             public float getAttackDamageBonus() {
-                return 7f;
+                return 4f;
             }
 
             public int getLevel() {
