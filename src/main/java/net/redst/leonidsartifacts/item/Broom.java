@@ -54,13 +54,17 @@ public class Broom extends SwordItem {
     @Override
     public void inventoryTick(ItemStack itemstack, Level world, Entity entity, int slot, boolean selected) {
         super.inventoryTick(itemstack, world, entity, slot, selected);
-
         if (entity instanceof Player player) {
             if (selected) {
                 if ((player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new Variables.PlayerVariables())).DoubleJump) {
+                    if(world instanceof ServerLevel level) {
+                        level.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 3, 0,0, 0, Math.random() * -0.05);
+                    }
+                    else{
                         world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
                         world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
                         world.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, entity.getX(), entity.getY(), entity.getZ(), 0, Math.random() * -0.05, 0);
+                    }
                     player.getCapability(Variables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
                         capability.DoubleJump = false;
                         capability.syncPlayerVariables(player);
@@ -80,12 +84,11 @@ public class Broom extends SwordItem {
         int range = 15;
         if (pLevel instanceof ServerLevel level) {
             if (pPlayer instanceof ServerPlayer serverPlayer) {
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
-                pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
+                if(pLevel instanceof ServerLevel sLevel) {
+                    sLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 3, 0,0, 0, 0);
+                    sLevel.sendParticles(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 3, 0,0, 0, 0);
+
+                }
                 pPlayer.getCooldowns().addCooldown(pPlayer.getMainHandItem().getItem(), 160);
 
                 for (int i = range; i > 0; --i) {
@@ -97,6 +100,14 @@ public class Broom extends SwordItem {
                     }
                 }
             }
+        }
+        else {
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random(), pPlayer.getZ(), 0, 0, 0);
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
+            pLevel.addParticle(ParticleTypes.CAMPFIRE_COSY_SMOKE, pPlayer.getX(), pPlayer.getY() + Math.random() + 0.5, pPlayer.getZ(), 0, 0, 0);
         }
         return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }

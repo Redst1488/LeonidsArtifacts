@@ -3,6 +3,7 @@ package net.redst.leonidsartifacts.item;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -40,6 +41,7 @@ public class Charon extends Item {
             pPlayer.level().addFreshEntity(vapor2);
             pPlayer.level().addFreshEntity(vapor3);
             pPlayer.addEffect(new MobEffectInstance(InitEffects.VAPED.get(), 600, 0, false, false));
+            pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, 60, 0, false, false));
         }
             return InteractionResultHolder.pass(pPlayer.getItemInHand(pUsedHand));
     }
